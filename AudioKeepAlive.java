@@ -73,11 +73,11 @@ public class AudioKeepAlive {
                     // Calculate the sine wave sample using the formula:
                     // w(t) = sin(2pi*f*t + k)
                     // Where: 
-                    //   - A is the amplitude (we scale it by Short.MAX_VALUE 
-                    //       for 16-bit output since sinewav is between -1 and 1)
                     //   - f is the frequency of the tone
                     //   - t is the time (we use sample index, scaled by the sample rate)
-                    //   - k is the phase, we just leave it at 0.
+                    //   - k is the phase shift, which we leave at 0.
+                    //   - We scale the sine wave with a very low amplitude to minimize volume of potential noise.
+                    //   - Result is multiplied by Short.MAX_VALUE to convert sinewave of range -1..1 to 16-bit signed value.
                     short sample = (short) (Math.sin(phase) * amplitude * Short.MAX_VALUE);
                     
                     // Write the low byte and high byte of the sample to the buffer

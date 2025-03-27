@@ -39,11 +39,11 @@ public class AudioKeepAlive {
             AudioFormat format = new AudioFormat(
                     AudioFormat.Encoding.PCM_SIGNED, // Pulse-code modulation encoding
                     sampleRate,                      
-                    16,             // 16 bits per sample
-                    1,                      // Mono channel
-                    2,                     // 2 bytes per frame (16-bit per channel)
-                    sampleRate,                      // Frame rate (== sample rate)
-                    false                  // Little-endian bytes!
+                    16,            // 16 bits per sample
+                    1,             // Mono channel
+                    2,             // 2 bytes per frame (16-bit per channel)
+                    sampleRate,    // Frame rate (== sample rate)
+                    false          // Little-endian bytes!
             );
             
             // ====================================== //
